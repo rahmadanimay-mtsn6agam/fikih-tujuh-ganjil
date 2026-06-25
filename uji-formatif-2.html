@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uji Formatif Bab 2 | FIKIH KELAS VII</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f5f7f6;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        .top-nav {
+            background: #004d40;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .top-nav a { color: #a5d6a7; font-weight: 600; }
+        .top-nav a:hover { color: white; }
+
+        .hero {
+            background: linear-gradient(135deg, #ff6f00, #f57c00);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .hero p { opacity: 0.95; font-style: italic; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .quiz-info {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            text-align: center;
+        }
+        .quiz-info div { padding: 0.5rem; }
+        .quiz-info .label { font-size: 0.8rem; color: #888; }
+        .quiz-info .value { font-size: 1.3rem; font-weight: 700; color: #004d40; }
+
+        .question {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #00796b;
+        }
+        .question .q-number {
+            display: inline-block;
+            background: #004d40;
+            color: white;
+            width: 35px; height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+        .question h3 {
+            color: #004d40;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: inline;
+        }
+        .question .q-text {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .options label {
+            display: block;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            background: #f9fbf9;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .options label:hover {
+            background: #e0f2f1;
+            border-color: #00796b;
+        }
+        .options input[type="radio"] { margin-right: 0.8rem; }
+        .options input[type="radio"]:checked + span { font-weight: 600; color: #004d40; }
+
+        .essay textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            resize: vertical;
+        }
+        .essay textarea:focus {
+            outline: none;
+            border-color: #00796b;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #004d40, #00796b);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .submit-btn:hover { transform: scale(1.05); }
+
+        .result {
+            display: none;
+            background: linear-gradient(135deg, #004d40, #00796b);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .result.show { display: block; }
+        .result h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .result .score { font-size: 3rem; font-weight: 800; margin: 1rem 0; }
+        .result .message { opacity: 0.95; font-style: italic; }
+
+        .back-link {
+            display: inline-block;
+            background: #004d40;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #004d40;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        footer p { font-size: 0.85rem; opacity: 0.85; margin: 0.3rem 0; }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="2.html">← Kembali ke Bab 2</a>
+</nav>
+
+<section class="hero">
+    <div class="badge">UJI FORMATIF · BAB 2</div>
+    <h1>📝 Uji Pemahaman: Wudhuk</h1>
+    <p>Ukur pemahaman Anda tentang tata cara, rukun, sunnah, dan hikmah wudhuk</p>
+</section>
+
+<div class="container">
+
+    <div class="quiz-info">
+        <div>
+            <div class="label">Jumlah Soal</div>
+            <div class="value">10</div>
+        </div>
+        <div>
+            <div class="label">Pilihan Ganda</div>
+            <div class="value">7</div>
+        </div>
+        <div>
+            <div class="label">Esai Singkat</div>
+            <div class="value">3</div>
+        </div>
+        <div>
+            <div class="label">Waktu</div>
+            <div class="value">∞</div>
+        </div>
+    </div>
+
+    <form id="quizForm">
+
+        <!-- PG 1 -->
+        <div class="question">
+            <span class="q-number">1</span>
+            <h3>Pilihan Ganda</h3>
+            <p class="q-text">Secara bahasa, kata "al-wudhuk" berasal dari akar kata <em>"al-wadha'ah"</em> yang berarti...</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a"><span>a. Doa dan dzikir</span></label>
+                <label><input type="radio" name="q1" value="b"><span>b. Kebersihan, cahaya, dan keindahan</span></label>
+                <label><input type="radio" name="q1" value="c"><span>c. Puasa dan sedekah</span></label>
+                <label><input type="radio" name="q1" value="d"><span>d. Shalat dan zakat</span></label>
+            </div>
+        </div>
+
+        <!-- PG 2 -->
+        <div class="question">
+            <span class="q-number">2</span>
+            <h3>Pilihan Ganda</h3>
+            <p class="q-text">Dalil utama kewajiban wudhuk dalam Al-Qur'an terdapat dalam...</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="a"><span>a. QS. Al-Baqarah: 222</span></label>
+                <label><input type="radio" name="q2" value="b"><span>b. QS. An-Nisa: 43</span></label>
+                <label><input type="radio" name="q2" value="c"><span>c. QS. Al-Maidah: 6</span></label>
+                <label><input type="radio" name="q2" value="d"><span>d. QS. At-Taubah: 108</span></label>
+            </div>
+        </div>
+
+        <!-- PG 3 -->
+        <div class="question">
+            <span class="q-number">3</span>
+            <h3>Pilihan Ganda</h3>
+            <p class="q-text">Berikut yang termasuk <strong>rukun</strong> wudhuk menurut mazhab Syafi'i adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="a"><span>a. Membaca basmalah</span></label>
+                <label><input type="radio" name="q3" value="b"><span>b. Berkumur-kumur</span></label>
+                <label><input type="radio" name="q3" value="c"><span>c. Membasuh wajah</span></label>
+                <label><input type="radio" name="q3" value="d"><span>d. Mengusap kedua telinga</span></label>
+            </div>
+        </div>
+
+        <!-- PG 4 -->
+        <div class="question">
+            <span class="q-number">4</span>
+            <h3>Pilihan Ganda</h3>
+            <p class="q-text">Berikut yang <strong>bukan</strong> merupakan pembatal wudhuk adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="a"><span>a. Keluar angin dari dubur</span></label>
+                <label><input type="radio" name="q4" value="b"><span>b. Tidur nyenyak</span></label>
+                <label><input type="radio" name="q4" value="c"><span>c. Bersin</span></label>
+                <label><input type="radio" name="q4" value="d"><span>d. Menyentuh kemaluan tanpa penghalang</span></label>
+            </div>
+        </div>
+
+        <!-- PG 5 -->
+        <div class="question">
+            <span class="q-number">5</span>
+            <h3>Pilihan Ganda</h3>
+            <p class="q-text">Jumlah rukun wudhuk menurut mazhab Syafi'i adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a"><span>a. 4 rukun</span></label>
+                <label><input type="radio" name="q5" value="b"><span>b. 5 rukun</span></label>
+                <label><input type="radio" name="q5" value="c"><span>c. 6 rukun</span></label>
+                <label><input type="radio" name="q5" value="d"><span>d. 7 rukun</span></label>
+            </div>
+        </div>
+
+        <!-- PG 6 -->
+        <div class="question">
+            <span class="q-number">6</span>
+            <h3>Pilihan Ganda</h3>
+            <p class="q-text">Mengusap sebagian kepala dalam wudhuk hukumnya...</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="a"><span>a. Sunnah</span></label>
+                <label><input type="radio" name="q6" value="b"><span>b. Rukun (wajib)</span></label>
+                <label><input type="radio" name="q6" value="c"><span>c. Mubah</span></label>
+                <label><input type="radio" name="q6" value="d"><span>d. Makruh</span></label>
+            </div>
+        </div>
+
+        <!-- PG 7 -->
+        <div class="question">
+            <span class="q-number">7</span>
+            <h3>Pilihan Ganda</h3>
+            <p class="q-text">Prinsip melaksanakan rukun wudhuk secara berurutan sesuai urutan yang ditetapkan syariat disebut...</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a"><span>a. Niat</span></label>
+                <label><input type="radio" name="q7" value="b"><span>b. Muwalah</span></label>
+                <label><input type="radio" name="q7" value="c"><span>c. Tertib</span></label>
+                <label><input type="radio" name="q7" value="d"><span>d. Tartil</span></label>
+            </div>
+        </div>
+
+        <!-- Essay 1 -->
+        <div class="question essay">
+            <span class="q-number">8</span>
+            <h3>Esai Singkat</h3>
+            <p class="q-text">Sebutkan enam rukun wudhuk menurut mazhab Syafi'i secara berurutan!</p>
+            <textarea name="q8" placeholder="Tulis jawaban Anda di sini..."></textarea>
+        </div>
+
+        <!-- Essay 2 -->
+        <div class="question essay">
+            <span class="q-number">9</span>
+            <h3>Esai Singkat</h3>
+            <p class="q-text">Jelaskan perbedaan antara rukun, sunnah, dan pembatal wudhuk, serta berikan masing-masing dua contoh!</p>
+            <textarea name="q9" placeholder="Tulis jawaban Anda di sini..."></textarea>
+        </div>
+
+        <!-- Essay 3 -->
+        <div class="question essay">
+            <span class="q-number">10</span>
+            <h3>Esai Singkat</h3>
+            <p class="q-text">Sebutkan tiga hikmah wudhuk bagi kehidupan seorang muslim, dan jelaskan masing-masing secara singkat!</p>
+            <textarea name="q10" placeholder="Tulis jawaban Anda di sini..."></textarea>
+        </div>
+
+        <div class="submit-section">
+            <button type="button" class="submit-btn" onclick="submitQuiz()">📤 Kumpulkan Jawaban</button>
+        </div>
+
+    </form>
+
+    <div class="result" id="result">
+        <h2>🎉 Hasil Uji Formatif</h2>
+        <div class="score" id="score">0/7</div>
+        <p class="message" id="message">Terus semangat belajar!</p>
+        <a href="2.html" class="back-link">← Kembali ke Bab 2</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 · Dra. Rahmadani · MTsN 6 Agam</p>
+    <p>Uji Formatif Bab 2: Wudhuk</p>
+</footer>
+
+<script>
+    const answers = {
+        q1: 'b', q2: 'c', q3: 'c', q4: 'c',
+        q5: 'c', q6: 'b', q7: 'c'
+    };
+
+    function submitQuiz() {
+        let score = 0;
+        const total = 7;
+
+        // Check all PG questions are answered
+        let allAnswered = true;
+        for (let i = 1; i <= total; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (!selected) {
+                allAnswered = false;
+                break;
+            }
+            if (selected.value === answers[`q${i}`]) {
+                score++;
+            }
+        }
+
+        if (!allAnswered) {
+            alert('⚠️ Mohon jawab semua soal pilihan ganda terlebih dahulu!');
+            return;
+        }
+
+        // Check essay completion
+        let essaysCompleted = 0;
+        for (let i = 8; i <= 10; i++) {
+            const val = document.querySelector(`textarea[name="q${i}"]`).value.trim();
+            if (val.length > 10) essaysCompleted++;
+        }
+
+        const result = document.getElementById('result');
+        const scoreEl = document.getElementById('score');
+        const msgEl = document.getElementById('message');
+
+        scoreEl.textContent = `${score}/${total} (PG) + ${essaysCompleted}/3 (Esai)`;
+
+        let message = '';
+        const percent = (score / total) * 100;
+        if (percent >= 85 && essaysCompleted === 3) {
+            message = '🌟 Masya Allah! Pemahaman Anda tentang wudhuk sangat baik. Terus istiqomah!';
+        } else if (percent >= 70) {
+            message = '👍 Bagus! Terus tingkatkan pemahaman fiqih Anda dengan membaca ulang materi.';
+        } else if (percent >= 50) {
+            message = '💪 Cukup baik. Pelajari kembali materi yang belum dikuasai, khususnya rukun dan pembatal wudhuk.';
+        } else {
+            message = '📚 Perlu belajar lebih giat. Ulangi membaca Bab 2 dengan seksama dan diskusikan dengan guru.';
+        }
+
+        if (essaysCompleted < 3) {
+            message += ' (Lengkapi jawaban esai Anda untuk hasil evaluasi yang utuh.)';
+        }
+
+        msgEl.textContent = message;
+        result.classList.add('show');
+        result.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

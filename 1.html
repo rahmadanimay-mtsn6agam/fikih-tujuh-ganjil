@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 1: Pengantar Thaharah | FIKIH KELAS VII</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f5f7f6;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* Top Navigation */
+        .top-nav {
+            background: #1b5e20;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .top-nav a {
+            color: #c8e6c9;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .top-nav a:hover { color: white; }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: "﷽";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18rem;
+            opacity: 0.04;
+            font-family: 'Traditional Arabic', serif;
+        }
+        .breadcrumb {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .chapter-badge {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .hero-banner h1 {
+            font-size: 2.5rem;
+            margin: 0.5rem 0;
+            font-weight: 800;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-banner .subtitle {
+            max-width: 700px;
+            margin: 1rem auto;
+            font-size: 1.05rem;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        .author-line {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Section Blocks */
+        .section-block {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #2e7d32;
+        }
+        .section-letter {
+            display: inline-block;
+            background: #1b5e20;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+        }
+        .section-block h2 {
+            color: #1b5e20;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .section-block p {
+            margin-bottom: 1rem;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Definition Cards */
+        .def-card {
+            background: #e8f5e9;
+            border-left: 4px solid #2e7d32;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .def-card .label {
+            font-size: 0.8rem;
+            color: #2e7d32;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .def-card h4 {
+            color: #1b5e20;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Icon Grid */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .icon-item {
+            background: #f9fbf9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .icon-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(46,125,50,0.15);
+        }
+        .icon-item .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .icon-item h4 {
+            color: #1b5e20;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .icon-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Quran Verse */
+        .quran-verse {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+        .quran-verse .arabic {
+            font-size: 1.8rem;
+            font-family: 'Traditional Arabic', 'Amiri', serif;
+            direction: rtl;
+            margin-bottom: 1rem;
+            line-height: 2;
+        }
+        .quran-verse .translation {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .quran-verse .reference {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+
+        /* Key Concept Box */
+        .key-concept {
+            background: #fff3e0;
+            border-left: 4px solid #f57c00;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .key-concept .label {
+            font-size: 0.8rem;
+            color: #e65100;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .key-concept strong { color: #bf360c; }
+
+        /* Reflection Box */
+        .reflection-box {
+            background: #f3e5f5;
+            border-left: 4px solid #7b1fa2;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .reflection-box .label {
+            font-size: 0.8rem;
+            color: #6a1b9a;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        .comparison-table th {
+            background: #1b5e20;
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        .comparison-table tr:nth-child(even) td { background: #f9fbf9; }
+        .comparison-table td:first-child { font-weight: 600; color: #1b5e20; }
+
+        /* Video Button */
+        .video-btn {
+            display: inline-block;
+            background: #2e7d32;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .video-btn:hover { background: #1b5e20; }
+
+        /* Keywords */
+        .keywords-section {
+            background: #1b5e20;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .keywords-section h2 {
+            color: #c8e6c9;
+            margin-bottom: 1.5rem;
+        }
+        .keyword-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+        .keyword {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .keywords-section .arabic-quote {
+            font-family: 'Traditional Arabic', 'Amiri', serif;
+            font-size: 1.8rem;
+            direction: rtl;
+            margin: 1.5rem 0 0.5rem;
+            line-height: 1.8;
+        }
+
+        /* Quiz CTA */
+        .quiz-cta {
+            background: linear-gradient(135deg, #ff6f00, #f57c00);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .quiz-cta h2 { margin-bottom: 0.5rem; }
+        .quiz-cta p { margin-bottom: 1.5rem; opacity: 0.95; }
+        .quiz-cta a {
+            display: inline-block;
+            background: white;
+            color: #e65100;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+        .quiz-cta a:hover { transform: scale(1.05); }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        .bottom-nav a {
+            color: #1b5e20;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border: 2px solid #1b5e20;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .bottom-nav a:hover {
+            background: #1b5e20;
+            color: white;
+        }
+        .bottom-nav .disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: #e53935;
+            color: white;
+            border: none;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #1b5e20;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        footer .brand {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        footer p { font-size: 0.85rem; opacity: 0.85; margin: 0.3rem 0; }
+        footer a { color: #c8e6c9; }
+
+        @media (max-width: 600px) {
+            .hero-banner h1 { font-size: 1.8rem; }
+            .section-block { padding: 1.5rem; }
+            .bottom-nav { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html">← Daftar Isi</a>
+</nav>
+
+<section class="hero-banner">
+    <div class="breadcrumb">FIKIH · KELAS VII · MTsN 6 AGAM</div>
+    <div class="chapter-badge">Bab 1 dari 5</div>
+    <h1>Pengantar Thaharah: Bersuci sebagai Kunci Ibadah</h1>
+    <p class="subtitle">
+        Memahami hakikat thaharah sebagai fondasi ibadah — sebuah perjalanan menyucikan lahir dan batin sebelum menghadap Sang Maha Suci.
+    </p>
+    <div class="author-line">Dra. Rahmadani · MTsN 6 Agam</div>
+</section>
+
+<div class="container">
+
+    <!-- Section A -->
+    <div class="section-block">
+        <h2><span class="section-letter">A</span> Pengertian Thaharah dan Bersuci</h2>
+        <p>
+            Thaharah dan bersuci merupakan dua konsep yang saling melengkapi dalam memahami syarat sahnya ibadah dalam Islam. Tanpa thaharah, amal ibadah seperti shalat, thawaf, dan menyentuh mushaf Al-Qur'an tidak akan diterima oleh Allah SWT.
+        </p>
+        <p>
+            Dalam perspektif fiqih, thaharah dipandang sebagai upaya menghilangkan hadas dan najis — baik secara hakiki (fisik) maupun secara hukmi (symbolis) — menggunakan alat yang telah ditentukan oleh syariat. Setiap muslim yang baligh dan berakal wajib memahami tata cara bersuci agar ibadahnya sah dan diterima.
+        </p>
+        <p>
+            Dalam pandangan Islam, kebersihan adalah sebagian dari iman. Rasulullah SAW bersabda: <em>"Kebersihan itu sebagian dari iman"</em> (HR. Muslim). Thaharah bukan sekadar ritual fisik, melainkan cerminan kesucian jiwa dan ketaatan kepada Allah SWT.
+        </p>
+
+        <div class="def-card">
+            <div class="label">📌 DEFINISI</div>
+            <h4>Thaharah (الثَّهَارَة)</h4>
+            <p>Secara bahasa berarti "bersih" dan "suci". Secara istilah fiqih, thaharah adalah mengangkat hadas atau menghilangkan najis dengan menggunakan air atau tanah yang suci dan menyucikan, sesuai dengan ketentuan syariat.</p>
+        </div>
+
+        <div class="def-card">
+            <div class="label">📌 DEFINISI</div>
+            <h4>Bersuci (Tathahhur)</h4>
+            <p>Proses membersihkan diri dari hadas kecil (dengan wudhuk atau tayamum), hadas besar (dengan mandi wajib), serta najis yang melekat pada badan, pakaian, dan tempat shalat.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+            <div style="background: #f1f8e9; padding: 1.2rem; border-radius: 8px;">
+                <h4 style="color: #33691e; margin-bottom: 0.5rem;">1 · Perspektif Fiqih</h4>
+                <p style="font-size: 0.9rem; margin: 0;">Thaharah sebagai syarat sahnya ibadah — aturan rinci tentang air, tata cara, dan hal yang membatalkan.
+                </p>
+            </div>
+            <div style="background: #f1f8e9; padding: 1.2rem; border-radius: 8px;">
+                <h4 style="color: #33691e; margin-bottom: 0.5rem;">2 · Perspektif Spiritual</h4>
+                <p style="font-size: 0.9rem; margin: 0;">Thaharah sebagai cerminan kesucian batin — membersihkan hati dari syirik, dendam, dan riya' sebelum menghadap Allah.</p>
+            </div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Pengantar Thaharah</button>
+    </div>
+
+    <!-- Section B -->
+    <div class="section-block">
+        <h2><span class="section-letter">B</span> Hakikat Thaharah sebagai Syarat Ibadah</h2>
+        <p>
+            Memahami hakikat thaharah berarti menyelami esensi mendalam mengapa Allah SWT mensyaratkan kesucian sebelum hamba-Nya berdiri di hadapan-Nya. Thaharah bukan sekadar "cuci tangan dan kaki", melainkan ritual sakral yang menghubungkan lahir dan batin seorang muslim.
+        </p>
+        <p>
+            Dalam konteks ibadah, thaharah adalah gerbang pertama — tanpa melewatinya, seorang hamba tidak dapat memasuki ruang munajat dengan Allah. Shalat tidak sah tanpa thaharah, thawaf tidak sah tanpa thaharah, dan menyentuh mushaf pun memerlukan kesucian.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">🚿</div>
+                <h4>Thaharah Hissiyah</h4>
+                <p>Bersuci secara fisik dari hadas dan najis menggunakan air atau tanah.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">💎</div>
+                <h4>Thaharah Maknawiyah</h4>
+                <p>Bersuci secara spiritual dari dosa, syirik, dan penyakit hati.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🕌</div>
+                <h4>Syarat Sah Ibadah</h4>
+                <p>Thaharah adalah prasyarat mutlak diterimanya shalat dan ibadah lainnya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🤲</div>
+                <h4>Adab Menghadap Allah</h4>
+                <p>Forma penghambaan sebelum berdiri di hadapan Raja Semesta Alam.</p>
+            </div>
+        </div>
+
+        <div class="quran-verse">
+            <div class="arabic">إِنَّ ٱللَّهَ يُحِبُّ ٱلتَّوَّٰبِينَ وَيُحِبُّ ٱلْمُتَطَهِّرِينَ</div>
+            <div class="translation">"Sesungguhnya Allah mencintai orang-orang yang bertaubat dan menyukai orang-orang yang menyucikan diri."</div>
+            <div class="reference">— QS. Al-Baqarah [2]: 222</div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Hakikat Thaharah</button>
+    </div>
+
+    <!-- Section C -->
+    <div class="section-block">
+        <h2><span class="section-letter">C</span> Dimensi-Dimensi Thaharah</h2>
+        <p>
+            Thaharah memiliki dimensi yang saling berkaitan. Pemahaman terhadap dimensi-dimensi ini penting untuk mengapresiasi keindahan syariat Islam yang mengatur aspek lahir dan batin secara seimbang.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">🏛️</div>
+                <h4>Dimensi Fiqhiyah</h4>
+                <p>Hukum, rukun, syarat, dan tata cara bersuci menurut empat mazhab.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🌊</div>
+                <h4>Dimensi Materi</h4>
+                <p>Air, tanah, dan alat-alat yang digunakan untuk bersuci.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">📖</div>
+                <h4>Dimensi Dalil</h4>
+                <p>Ayat Al-Qur'an dan hadis Nabi yang menjadi landasan hukum thaharah.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🎚️</div>
+                <h4>Dimensi Praktis</h4>
+                <p>Implementasi thaharah dalam kehidupan sehari-hari seorang muslim.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🌱</div>
+                <h4>Dimensi Spiritual</h4>
+                <p>Hikmah dan nilai-nilai kesucian jiwa di balik ritual bersuci.</p>
+            </div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Dimensi-Dimensi Thaharah</button>
+    </div>
+
+    <!-- Section D -->
+    <div class="section-block">
+        <h2><span class="section-letter">D</span> Pembagian Air dan Alat Bersuci</h2>
+        <p>
+            Air merupakan alat utama dalam thaharah. Para ulama fiqih membagi air ke dalam beberapa kategori berdasarkan sifat dan hukum penggunaannya. Pemahaman ini penting agar ibadah kita sah dan sesuai syariat.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">💧</div>
+                <h4>Air Mutlak</h4>
+                <p>Air suci dan menyucikan — air hujan, sumur, laut, sungai. Digunakan untuk wudhuk dan mandi.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🫖</div>
+                <h4>Air Musta'mal</h4>
+                <p>Air bekas pakai yang suci namun tidak menyucikan — air yang telah digunakan untuk mengangkat hadas.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🚫</div>
+                <h4>Air Najis</h4>
+                <p>Air yang terkena najis sehingga berubah warna, bau, atau rasanya — tidak boleh digunakan untuk bersuci.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🏜️</div>
+                <h4>Tayamum</h4>
+                <p>Debu/tanah suci sebagai pengganti air ketika tidak ada air atau karena uzur syar'i.</p>
+            </div>
+        </div>
+
+        <div class="key-concept">
+            <div class="label">📌 KONSEP KUNCI</div>
+            <p><strong>Air Mutlak = Suci dan Menyucikan</strong></p>
+            <p>Air mutlak adalah air yang masih asli (belum berubah sifatnya) dan dapat digunakan untuk bersuci. Termasuk di dalamnya air hujan, air sumur, air sungai, air laut, air salju, dan air es. Tanpa air mutlak, thaharah dengan air tidak sah — sebagaimana tubuh tanpa ruh.</p>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Pembagian Air</button>
+    </div>
+
+    <!-- Section E -->
+    <div class="section-block">
+        <h2><span class="section-letter">E</span> Ruang Lingkup Pembahasan Thaharah</h2>
+        <p>
+            Ruang lingkup pembahasan thaharah dalam fiqih mencakup berbagai aspek yang saling berkaitan. Pemahaman komprehensif terhadap ruang lingkup ini penting untuk menguasai bab-bab ibadah selanjutnya.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">💦</div>
+                <h4>Bab Air</h4>
+                <p>Pembagian air dan hukum penggunaannya dalam thaharah.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🤲</div>
+                <h4>Wudhuk</h4>
+                <p>Rukun, sunnah, dan hal yang membatalkan wudhuk.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🚿</div>
+                <h4>Mandi Wajib</h4>
+                <p>Sebab-sebab mandi besar dan tata caranya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🏜️</div>
+                <h4>Tayamum</h4>
+                <p>Sebab, syarat, dan tata cara bertayamum.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🧼</div>
+                <h4>Najis</h4>
+                <p>Pembagian najis (mukhaffafah, mutawassithah, mughallazah) dan cara menyucikannya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🌙</div>
+                <h4>Haidh, Nifas, Wiladah</h4>
+                <p>Darah-darah yang menghalangi ibadah dan hukumnya.</p>
+            </div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Ruang Lingkup Thaharah</button>
+    </div>
+
+    <!-- Section F -->
+    <div class="section-block">
+        <h2><span class="section-letter">F</span> Fungsi dan Hikmah Thaharah</h2>
+        <p>
+            Thaharah memiliki berbagai fungsi dan hikmah yang mendalam. Pemahaman terhadap fungsi ini penting untuk mengagumi kesempurnaan syariat Islam yang mengatur aspek lahir dan batin secara seimbang.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">⚡</div>
+                <h4>Syarat Sah Ibadah</h4>
+                <p>Menjadi prasyarat mutlak diterimanya shalat, thawaf, dan ibadah lainnya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🛡️</div>
+                <h4>Penjaga Kesehatan</h4>
+                <p>Membiasakan hidup bersih mencegah penyakit dan menjaga kebugaran tubuh.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🎯</div>
+                <h4>Pembentuk Disiplin</h4>
+                <p>Melatih ketertiban, konsistensi, dan ketaatan pada aturan syariat.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">💎</div>
+                <h4>Penyuci Jiwa</h4>
+                <p>Membersihkan hati dari dosa dan mendekatkan diri kepada Allah.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🔄</div>
+                <h4>Penghapus Dosa</h4>
+                <p>Setiap basuhan wudhuk menggugurkan dosa kecil pada anggota yang dibasuh.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">✨</div>
+                <h4>Cahaya di Hari Kiamat</h4>
+                <p>Anggota tubuh yang dibasuh akan bercahaya (ghurr muhajjalun) di hari kiamat.</p>
+            </div>
+        </div>
+
+        <div class="reflection-box">
+            <div class="label">📌 REFLEKSI</div>
+            <h4 style="color: #6a1b9a; margin-bottom: 0.5rem;">Thaharah: Gerbang Menuju Kekhusyukan</h4>
+            <p style="margin: 0;">Rasulullah SAW bersabda: <em>"Tidaklah seorang muslim berwudhuk lalu membaguskan wudhuknya, melainkan akan keluar dosa-dosanya dari tubuhnya — keluar dari kuku dan rambutnya."</em> (HR. Ahmad). Inilah bukti bahwa thaharah bukan sekadar ritual fisik, melainkan proses transformasi spiritual yang menghubungkan lahir dan batin seorang hamba dengan Rabb-nya.</p>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Fungsi dan Hikmah Thaharah</button>
+    </div>
+
+    <!-- Section G -->
+    <div class="section-block">
+        <h2><span class="section-letter">G</span> Perbandingan Perspektif Fiqih dan Spiritual</h2>
+        <p>
+            Berikut adalah perbandingan mendasar antara perspektif fiqih (hukum formal) dan perspektif spiritual (hakikat batin) dalam memandang thaharah sebagai kunci ibadah.
+        </p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Aspek</th>
+                    <th>Perspektif Fiqih</th>
+                    <th>Perspektif Spiritual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sumber Hukum</td>
+                    <td>Al-Qur'an, Hadis, Ijma', Qiyas</td>
+                    <td>Tadabbur ayat dan tazkiyatun nafs</td>
+                </tr>
+                <tr>
+                    <td>Tujuan Utama</td>
+                    <td>Mengangkat hadas dan menghilangkan najis</td>
+                    <td>Menyucikan lahir dan batin sebelum menghadap Allah</td>
+                </tr>
+                <tr>
+                    <td>Ukuran Sah</td>
+                    <td>Terpenuhinya rukun dan syarat fiqih</td>
+                    <td>Hadirnya hati, kekhusyukan, dan keikhlasan</td>
+                </tr>
+                <tr>
+                    <td>Objek Kajian</td>
+                    <td>Air, tata cara, hal yang membatalkan</td>
+                    <td>Dosa, penyakit hati, dan kesucian jiwa</td>
+                </tr>
+                <tr>
+                    <td>Pendekatan</td>
+                    <td>Empiris, tekstual, terukur secara hukum</td>
+                    <td>Empiris + tadabbur sebagai tazkiyatun nafs</td>
+                </tr>
+                <tr>
+                    <td>Tujuan Akhir</td>
+                    <td>Sahnya ibadah secara formal</td>
+                    <td>Diterimanya amal dan ma'rifatullah</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Perbandingan Perspektif</button>
+    </div>
+
+    <!-- Section H -->
+    <div class="section-block">
+        <h2><span class="section-letter">H</span> Urgensi Mempelajari Thaharah</h2>
+        <p>
+            Di era modern yang penuh dengan kesibukan, pemahaman tentang thaharah menjadi sangat penting karena beberapa alasan strategis berikut:
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">🕌</div>
+                <h4>Syarat Sah Shalat</h4>
+                <p>Shalat lima waktu tidak sah tanpa thaharah — fondasi ibadah harian seorang muslim.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">📖</div>
+                <h4>Adab Membaca Al-Qur'an</h4>
+                <p>Menyentuh mushaf memerlukan thaharah — menjaga kemuliaan kalamullah.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🏥</div>
+                <h4>Kesehatan Fisik</h4>
+                <p>Membiasakan hidup bersih mencegah penyakit dan menjaga kebugaran.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🌿</div>
+                <h4>Kebersihan Lingkungan</h4>
+                <p>Islam mengajarkan kebersihan sebagai bagian dari iman yang utuh.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🕌</div>
+                <h4>Penguatan Iman</h4>
+                <p>Mempelajari thaharah adalah bentuk tadabbur syariat yang meningkatkan keimanan.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🎓</div>
+                <h4>Fondasi Fiqih Lanjut</h4>
+                <p>Pemahaman thaharah adalah prasyarat untuk menguasai bab shalat, puasa, dan ibadah lainnya.</p>
+            </div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Urgensi Thaharah</button>
+    </div>
+
+    <!-- Keywords -->
+    <div class="keywords-section">
+        <h2>◆ Kata Kunci Bab Ini</h2>
+        <div class="keyword-cloud">
+            <span class="keyword">Thaharah</span>
+            <span class="keyword">Hadas</span>
+            <span class="keyword">Najis</span>
+            <span class="keyword">Wudhuk</span>
+            <span class="keyword">Mandi Wajib</span>
+            <span class="keyword">Tayamum</span>
+            <span class="keyword">Air Mutlak</span>
+            <span class="keyword">Bersuci</span>
+            <span class="keyword">Syarat Sah</span>
+            <span class="keyword">Ibadah</span>
+            <span class="keyword">Haidh</span>
+            <span class="keyword">Nifas</span>
+        </div>
+        <div class="arabic-quote">وَيُحِبُّ ٱلْمُتَطَهِّرِينَ</div>
+        <p style="opacity: 0.9; font-style: italic;">"...dan Dia menyukai orang-orang yang menyucikan diri."</p>
+        <p style="opacity: 0.8; font-size: 0.85rem;">— QS. At-Taubah [9]: 108</p>
+    </div>
+
+    <!-- Quiz CTA -->
+    <div class="quiz-cta">
+        <h2>📝 Uji Pemahaman Anda</h2>
+        <p>Setelah mempelajari Bab 1, ukur pemahaman Anda melalui uji formatif yang telah disiapkan. Jawab 10 pertanyaan pilihan ganda dan esai singkat.</p>
+        <a href="uji-formatif-1.html">📝 Ikuti Uji Formatif Bab 1 →</a>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="index.html" class="disabled">← Sebelumnya</a>
+        <a href="2.html">Selanjutnya →<br><small>Bab 2: Wudhuk</small></a>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="videoModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <h3 style="color: #1b5e20; margin-bottom: 1rem;">🎬 Video Pembelajaran</h3>
+        <p style="margin-bottom: 1rem;">Video pembelajaran akan segera tersedia.</p>
+        <p style="font-size: 0.9rem; color: #666;">Hubungi penulis untuk akses konten video lengkap.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="brand">D · RAHMADANI</div>
+    <p>© 2026 · Dra. Rahmadani</p>
+    <p>MTsN 6 Agam · Hak Cipta Dilindungi Undang-Undang</p>
+    <p><a href="mailto:rahmadanimay@gmail.com">rahmadanimay@gmail.com</a></p>
+</footer>
+
+<script>
+    function openModal() {
+        document.getElementById('videoModal').classList.add('active');
+    }
+    function closeModal() {
+        document.getElementById('videoModal').classList.remove('active');
+    }
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 2: Wudhuk | FIKIH KELAS VII</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f5f7f6;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* Top Navigation */
+        .top-nav {
+            background: #004d40;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .top-nav a {
+            color: #a5d6a7;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .top-nav a:hover { color: white; }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #004d40, #00695c, #00796b);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: "﷽";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18rem;
+            opacity: 0.04;
+            font-family: 'Traditional Arabic', serif;
+        }
+        .breadcrumb {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .chapter-badge {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .hero-banner h1 {
+            font-size: 2.5rem;
+            margin: 0.5rem auto;
+            font-weight: 800;
+            max-width: 800px;
+        }
+        .hero-banner .subtitle {
+            max-width: 700px;
+            margin: 1rem auto;
+            font-size: 1.05rem;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        .author-line {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Section Blocks */
+        .section-block {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #00796b;
+        }
+        .section-letter {
+            display: inline-block;
+            background: #004d40;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+        }
+        .section-block h2 {
+            color: #004d40;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .section-block p {
+            margin-bottom: 1rem;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Definition Cards */
+        .def-card {
+            background: #e0f2f1;
+            border-left: 4px solid #00796b;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .def-card .label {
+            font-size: 0.8rem;
+            color: #00796b;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .def-card h4 {
+            color: #004d40;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Perspective Cards */
+        .perspective-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .perspective-card {
+            background: #e8f5e9;
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+        .perspective-card h4 {
+            color: #1b5e20;
+            margin-bottom: 0.5rem;
+        }
+        .perspective-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #555;
+        }
+
+        /* Icon Grid */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .icon-item {
+            background: #f9fbf9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .icon-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,121,107,0.15);
+        }
+        .icon-item .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .icon-item h4 {
+            color: #004d40;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .icon-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Quran Verse */
+        .quran-verse {
+            background: linear-gradient(135deg, #004d40, #00796b);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+        .quran-verse .arabic {
+            font-size: 1.8rem;
+            font-family: 'Traditional Arabic', 'Amiri', serif;
+            direction: rtl;
+            margin-bottom: 1rem;
+            line-height: 2;
+        }
+        .quran-verse .translation {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .quran-verse .reference {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+
+        /* Key Concept Box */
+        .key-concept {
+            background: #fff3e0;
+            border-left: 4px solid #f57c00;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .key-concept .label {
+            font-size: 0.8rem;
+            color: #e65100;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .key-concept strong { color: #bf360c; }
+
+        /* Reflection Box */
+        .reflection-box {
+            background: #f3e5f5;
+            border-left: 4px solid #7b1fa2;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .reflection-box .label {
+            font-size: 0.8rem;
+            color: #6a1b9a;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .reflection-box h4 { color: #6a1b9a; margin-bottom: 0.5rem; }
+
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+        }
+        .comparison-table th {
+            background: #004d40;
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        .comparison-table tr:nth-child(even) td { background: #f9fbf9; }
+        .comparison-table td:first-child { font-weight: 600; color: #004d40; }
+
+        /* Ordered List for Rukun */
+        .rukun-list {
+            background: #e0f2f1;
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #00796b;
+        }
+        .rukun-list ol {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+        .rukun-list li {
+            padding: 0.5rem 0;
+            color: #333;
+            border-bottom: 1px dashed #b2dfdb;
+        }
+        .rukun-list li:last-child { border-bottom: none; }
+        .rukun-list li strong { color: #004d40; }
+
+        /* Video Button */
+        .video-btn {
+            display: inline-block;
+            background: #00796b;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .video-btn:hover { background: #004d40; }
+
+        /* Keywords */
+        .keywords-section {
+            background: #004d40;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .keywords-section h2 {
+            color: #a5d6a7;
+            margin-bottom: 1.5rem;
+        }
+        .keyword-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+        .keyword {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .keywords-section .arabic-quote {
+            font-family: 'Traditional Arabic', 'Amiri', serif;
+            font-size: 1.8rem;
+            direction: rtl;
+            margin: 1.5rem 0 0.5rem;
+            line-height: 1.8;
+        }
+
+        /* Quiz CTA */
+        .quiz-cta {
+            background: linear-gradient(135deg, #ff6f00, #f57c00);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .quiz-cta h2 { margin-bottom: 0.5rem; }
+        .quiz-cta p { margin-bottom: 1.5rem; opacity: 0.95; }
+        .quiz-cta a {
+            display: inline-block;
+            background: white;
+            color: #e65100;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+        .quiz-cta a:hover { transform: scale(1.05); }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        .bottom-nav a {
+            color: #004d40;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border: 2px solid #004d40;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .bottom-nav a:hover {
+            background: #004d40;
+            color: white;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: #e53935;
+            color: white;
+            border: none;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #004d40;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        footer .brand {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        footer p { font-size: 0.85rem; opacity: 0.85; margin: 0.3rem 0; }
+        footer a { color: #a5d6a7; }
+
+        @media (max-width: 600px) {
+            .hero-banner h1 { font-size: 1.8rem; }
+            .section-block { padding: 1.5rem; }
+            .perspective-grid { grid-template-columns: 1fr; }
+            .bottom-nav { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html">← Daftar Isi</a>
+</nav>
+
+<section class="hero-banner">
+    <div class="breadcrumb">FIKIH · KELAS VII · MTsN 6 AGAM</div>
+    <div class="chapter-badge">Bab 02 · Ibadah</div>
+    <h1>Wudhuk: Tata Cara dan Hikmah di Baliknya</h1>
+    <p class="subtitle">
+        Panduan lengkap rukun, sunnah, dan hal-hal yang membatalkan wudhuk — serta refleksi spiritual membersihkan lahir dan batin sebelum menghadap Allah, Sang Maha Suci.
+    </p>
+    <div class="author-line">Dra. Rahmadani · MTsN 6 Agam</div>
+</section>
+
+<div class="container">
+
+    <!-- Section A -->
+    <div class="section-block">
+        <h2><span class="section-letter">A</span> Pengertian Wudhuk</h2>
+        <p>
+            Wudhuk merupakan salah satu ibadah yang memiliki kedudukan sangat penting dalam Islam. Ia adalah gerbang pertama seorang hamba sebelum berdiri di hadapan Allah dalam shalat. Tanpa wudhuk — atau pengganti sahnya seperti tayamum — shalat seseorang tidak akan diterima.
+        </p>
+        <p>
+            Secara bahasa, kata <em>"al-wudhuk"</em> (الوُضُوء) berasal dari akar kata <em>"al-wadha'ah"</em> yang berarti kebersihan, cahaya, dan keindahan. Makna ini sangat tepat karena wudhuk tidak hanya membersihkan anggota tubuh secara fisik, tetapi juga memberikan "cahaya" spiritual yang akan bersinar di hari kiamat.
+        </p>
+        <p>
+            Secara istilah fiqih, wudhuk adalah menggunakan air suci dan menyucikan pada empat anggota tubuh tertentu — wajah, kedua tangan, sebagian kepala, dan kedua kaki — dengan cara yang telah ditentukan syariat, disertai niat, untuk menghilangkan hadas kecil.
+        </p>
+
+        <div class="def-card">
+            <div class="label">📌 DEFINISI</div>
+            <h4>Wudhuk (الوُضُوء)</h4>
+            <p>Secara bahasa berarti "kebersihan" dan "cahaya". Secara istilah fiqih, wudhuk adalah ibadah menggunakan air pada anggota tubuh tertentu (wajah, kedua tangan, sebagian kepala, dan kedua kaki) dengan cara tertentu untuk menghilangkan hadas kecil.</p>
+        </div>
+
+        <div class="def-card">
+            <div class="label">📌 DEFINISI</div>
+            <h4>Hadas Kecil</h4>
+            <p>Kondai tidak suci yang menghalangi seseorang dari ibadah tertentu (seperti shalat, thawaf, menyentuh mushaf) yang disebabkan oleh keluarnya sesuatu dari kubul atau dubur, tidur nyenyak, hilangnya akal, dan sebab-sebab lainnya.</p>
+        </div>
+
+        <div class="perspective-grid">
+            <div class="perspective-card">
+                <h4>1 · Perspektif Fiqih</h4>
+                <p>Wudhuk sebagai syarat sah shalat — aturan rinci tentang rukun, sunnah, dan pembatal yang harus dipenuhi agar ibadah diterima secara formal.</p>
+            </div>
+            <div class="perspective-card">
+                <h4>2 · Perspektif Spiritual</h4>
+                <p>Wudhuk sebagai proses pembersihan batin — setiap basuhan menggugurkan dosa kecil dan menyalakan cahaya iman di hati seorang hamba.</p>
+            </div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Pengertian Wudhuk</button>
+    </div>
+
+    <!-- Section B -->
+    <div class="section-block">
+        <h2><span class="section-letter">B</span> Dalil dan Dasar Hukum Wudhuk</h2>
+        <p>
+            Kewajiban wudhuk ditetapkan secara tegas dalam Al-Qur'an dan Hadis Nabi SAW. Pemahaman terhadap dalil-dalil ini penting agar kita melaksanakan wudhuk dengan penuh keyakinan dan keimanan, bukan sekadar kebiasaan.
+        </p>
+        <p>
+            Allah SWT berfirman dalam Al-Qur'an yang menjadi landasan utama kewajiban wudhuk. Ayat ini dikenal sebagai <em>"Ayat Wudhuk"</em> yang merinci anggota-anggota tubuh yang wajib dibasuh dan diusap.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">📖</div>
+                <h4>Dalil Al-Qur'an</h4>
+                <p>QS. Al-Maidah [5]: 6 — perintah langsung Allah untuk berwudhuk sebelum shalat.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">📜</div>
+                <h4>Dalil Hadis</h4>
+                <p>"Tidak diterima shalat tanpa thaharah" (HR. Muslim) — penegasan dari Rasulullah SAW.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🤝</div>
+                <h4>Ijma' Ulama</h4>
+                <p>Seluruh ulama sepakat bahwa wudhuk wajib bagi orang yang hendak shalat ketika berhadats kecil.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">⚖️</div>
+                <h4>Hukum Fiqih</h4>
+                <p>Wudhuk hukumnya wajib bagi orang berhadats kecil yang hendak melakukan ibadah yang mensyaratkan thaharah.</p>
+            </div>
+        </div>
+
+        <div class="quran-verse">
+            <div class="arabic">يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ وَأَيْدِيَكُمْ إِلَى الْمَرَافِقِ وَامْسَحُوا بِرُءُوسِكُمْ وَأَرْجُلَكُمْ إِلَى الْكَعْبَيْنِ</div>
+            <div class="translation">"Wahai orang-orang yang beriman! Apabila kamu hendak melaksanakan shalat, maka basuhlah wajahmu dan tanganmu sampai ke siku, dan usaplah kepalamu dan (basuh) kedua kakimu sampai ke kedua mata kaki."</div>
+            <div class="reference">— QS. Al-Maidah [5]: 6</div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Dalil Wudhuk</button>
+    </div>
+
+    <!-- Section C -->
+    <div class="section-block">
+        <h2><span class="section-letter">C</span> Dimensi-Dimensi Wudhuk</h2>
+        <p>
+            Wudhuk memiliki dimensi yang saling berkaitan — mulai dari aspek hukum formal hingga dimensi spiritual yang mendalam. Pemahaman multidimensi ini penting untuk mengapresiasi keindahan syariat Islam secara utuh.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">🏛️</div>
+                <h4>Dimensi Fiqhiyah</h4>
+                <p>Hukum, rukun, syarat, sunnah, dan hal-hal yang membatalkan wudhuk menurut empat mazhab.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🌊</div>
+                <h4>Dimensi Ritual</h4>
+                <p>Tata cara praktis pelaksanaan wudhuk — dari takbiratul ihram niat hingga basuhan terakhir.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">💎</div>
+                <h4>Dimensi Spiritual</h4>
+                <p>Penghapusan dosa, penerangan hati, dan kedekatan dengan Allah di balik setiap basuhan.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🏥</div>
+                <h4>Dimensi Kesehatan</h4>
+                <p>Manfaat medis dari membasuh anggota tubuh secara rutin — kebersihan dan pencegahan penyakit.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🌱</div>
+                <h4>Dimensi Pendidikan</h4>
+                <p>Wudhuk melatih kedisiplinan, ketertiban, dan konsistensi dalam menjalankan perintah Allah.</p>
+            </div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Dimensi-Dimensi Wudhuk</button>
+    </div>
+
+    <!-- Section D -->
+    <div class="section-block">
+        <h2><span class="section-letter">D</span> Rukun, Sunnah, dan Hal yang Membatalkan Wudhuk</h2>
+        <p>
+            Untuk memastikan wudhuk kita sah dan diterima, kita perlu memahami tiga hal penting: rukun (yang wajib dilakukan), sunnah (yang dianjurkan), dan hal-hal yang membatalkan. Ketiganya merupakan satu kesatuan yang tidak dapat dipisahkan.
+        </p>
+
+        <div class="rukun-list">
+            <h4 style="color: #004d40; margin-bottom: 1rem;">📋 Enam Rukun Wudhuk (Mazhab Syafi'i)</h4>
+            <ol>
+                <li><strong>Niat</strong> — ketika membasuh wajah, dengan niat mengangkat hadas kecil.</li>
+                <li><strong>Membasuh wajah</strong> — meratakan air dari dahi hingga dagun, dan dari telinga kanan ke telinga kiri.</li>
+                <li><strong>Membasuh kedua tangan hingga siku</strong> — termasuk siku dan seluruh lengan bawah.</li>
+                <li><strong>Mengusap sebagian kepala</strong> — minimal sebagian kecil dari rambut atau kulit kepala.</li>
+                <li><strong>Membasuh kedua kaki hingga mata kaki</strong> — termasuk kedua mata kaki secara sempurna.</li>
+                <li><strong>Tertib</strong> — melaksanakan rukun-rukun secara berurutan sesuai urutan di atas.</li>
+            </ol>
+        </div>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">🌟</div>
+                <h4>Sunnah Wudhuk</h4>
+                <p>Membaca basmalah, mencuci telapak tangan, berkumur, menghirup air ke hidung, mengusap seluruh kepala, mendahulukan yang kanan, dan lainnya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🚫</div>
+                <h4>Pembatal Wudhuk</h4>
+                <p>Keluar sesuatu dari kubul/dubur, tidur nyenyak, hilangnya akal (pingsan, mabuk, gila), bersentuhan kulit laki-perempuan bukan mahram tanpa penghalang, dan menyentuh kemaluan tanpa penghalang.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🔄</div>
+                <h4>Pengganti Wudhuk</h4>
+                <p>Tayamum — menggunakan debu suci sebagai pengganti wudhuk ketika tidak ada air atau karena uzur syar'i.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">✨</div>
+                <h4>Adab Wudhuk</h4>
+                <p>Menghadap kiblat, tidak berbicara, membaca doa sebelum dan sesudah wudhuk, serta mengeringkan anggota wudhuk.</p>
+            </div>
+        </div>
+
+        <div class="key-concept">
+            <div class="label">📌 KONSEP KUNCI</div>
+            <p><strong>Rukun ≠ Sunnah ≠ Pembatal</strong></p>
+            <p>Rukun adalah hal yang <em>wajib</em> dilakukan — jika ditinggalkan, wudhuk tidak sah. Sunnah adalah hal yang <em>dianjurkan</em> — jika dilakukan mendapat pahala, jika ditinggalkan wudhuk tetap sah. Pembatal adalah hal yang <em>menghapus</em> status suci — jika terjadi, wudhuk harus diulang.</p>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Rukun, Sunnah, dan Pembatal Wudhuk</button>
+    </div>
+
+    <!-- Section E -->
+    <div class="section-block">
+        <h2><span class="section-letter">E</span> Ruang Lingkup Pembahasan Wudhuk</h2>
+        <p>
+            Ruang lingkup pembahasan wudhuk dalam fiqih mencakup berbagai aspek yang saling berkaitan. Pemahaman komprehensif terhadap ruang lingkup ini penting untuk menguasai bab-bab ibadah selanjutnya, terutama shalat.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">💦</div>
+                <h4>Syarat Air Wudhuk</h4>
+                <p>Air harus suci dan menyucikan (air mutlak) — tidak berubah warna, bau, atau rasanya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">📋</div>
+                <h4>Rukun & Syarat</h4>
+                <p>Enam rukun wudhuk beserta syarat-syarat sahnya yang harus dipenuhi.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🌟</div>
+                <h4>Sunnah-Sunnah</h4>
+                <p>Amalan-amalan yang menyempurnakan wudhuk dan menambah pahala.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">⚠️</div>
+                <h4>Pembatal-Pembatal</h4>
+                <p>Hal-hal yang membatalkan wudhuk dan konsekuensi hukumnya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🏜️</div>
+                <h4>Tayamum</h4>
+                <p>Pengganti wudhuk ketika tidak ada air atau karena uzur syar'i.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🤲</div>
+                <h4>Doa Wudhuk</h4>
+                <p>Dzikir dan doa yang dibaca sebelum, saat, dan sesudah wudhuk.</p>
+            </div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Ruang Lingkup Wudhuk</button>
+    </div>
+
+    <!-- Section F -->
+    <div class="section-block">
+        <h2><span class="section-letter">F</span> Fungsi dan Hikmah Wudhuk</h2>
+        <p>
+            Wudhuk memiliki fungsi dan hikmah yang sangat mendalam — baik bagi kehidupan duniawi maupun ukhrawi. Pemahaman terhadap hikmah ini penting untuk mengagumi kesempurnaan syariat Islam.
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">🕌</div>
+                <h4>Syarat Sah Shalat</h4>
+                <p>Wudhuk adalah prasyarat mutlak diterimanya shalat lima waktu dan shalat-shalat lainnya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🔄</div>
+                <h4>Penghapus Dosa</h4>
+                <p>Setiap basuhan menggugurkan dosa kecil pada anggota tubuh yang dibasuh (HR. Muslim).</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">✨</div>
+                <h4>Cahaya di Hari Kiamat</h4>
+                <p>Anggota wudhuk akan bercahaya (ghurr muhajjalun) dan dikenali oleh Nabi di telaga al-Kautsar.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🛡️</div>
+                <h4>Penjaga Kesehatan</h4>
+                <p>Membasuh anggota tubuh 5x sehari menjaga kebersihan dan mencegah penyakit kulit.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">💎</div>
+                <h4>Penyuci Jiwa</h4>
+                <p>Wudhuk menenangkan hati, menghilangkan kantuk dan kemalasan, serta mempersiapkan jiwa untuk bermunajat.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🎯</div>
+                <h4>Pembentuk Disiplin</h4>
+                <p>Wudhuk melatih ketertiban, konsistensi, dan ketaatan pada aturan syariat secara rutin.</p>
+            </div>
+        </div>
+
+        <div class="reflection-box">
+            <div class="label">📌 REFLEKSI</div>
+            <h4>Wudhuk: Cahaya yang Menyucikan</h4>
+            <p style="margin: 0;">Rasulullah SAW bersabda: <em>"Maukah kalian aku tunjukkan sesuatu yang dengannya Allah menghapus dosa-dosa dan mengangkat derajat? Mereka menjawab: Tentu wahai Rasulullah. Beliau bersabda: Memperbanyak wudhuk pada kondisi yang tidak disukai (dalam keadaan sulit), memperbanyak langkah ke masjid, dan menunggu shalat setelah shalat. Itulah ar-ribath (penjagaan di jalan Allah)."</em> (HR. Muslim). Inilah bukti bahwa wudhuk bukan sekadar ritual, melainkan jalan menuju kemuliaan di sisi Allah.</p>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Fungsi dan Hikmah Wudhuk</button>
+    </div>
+
+    <!-- Section G -->
+    <div class="section-block">
+        <h2><span class="section-letter">G</span> Perbandingan Perspektif Fiqih dan Spiritual</h2>
+        <p>
+            Berikut adalah perbandingan mendasar antara perspektif fiqih (hukum formal) dan perspektif spiritual (hakikat batin) dalam memandang wudhuk sebagai ibadah yang mulia.
+        </p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Aspek</th>
+                    <th>Perspektif Fiqih</th>
+                    <th>Perspektif Spiritual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sumber Hukum</td>
+                    <td>QS. Al-Maidah: 6, Hadis Nabi, Ijma', Qiyas</td>
+                    <td>Tadabbur ayat dan tazkiyatun nafs</td>
+                </tr>
+                <tr>
+                    <td>Tujuan Utama</td>
+                    <td>Mengangkat hadas kecil agar sah shalat</td>
+                    <td>Menyucikan lahir dan batin sebelum menghadap Allah</td>
+                </tr>
+                <tr>
+                    <td>Ukuran Sah</td>
+                    <td>Terpenuhinya 6 rukun wudhuk secara tertib</td>
+                    <td>Hadirnya hati, kekhusyukan, dan keikhlasan</td>
+                </tr>
+                <tr>
+                    <td>Objek Kajian</td>
+                    <td>Air, anggota wudhuk, pembatal, tata cara</td>
+                    <td>Dosa yang dihapus, cahaya yang terpancar, kedekatan dengan Allah</td>
+                </tr>
+                <tr>
+                    <td>Pendekatan</td>
+                    <td>Empiris, tekstual, terukur secara hukum</td>
+                    <td>Empiris + tadabbur sebagai tazkiyatun nafs</td>
+                </tr>
+                <tr>
+                    <td>Tujuan Akhir</td>
+                    <td>Sahnya shalat secara formal</td>
+                    <td>Diterimanya amal dan ma'rifatullah</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Perbandingan Perspektif</button>
+    </div>
+
+    <!-- Section H -->
+    <div class="section-block">
+        <h2><span class="section-letter">H</span> Urgensi Mempelajari Wudhuk</h2>
+        <p>
+            Di era modern yang penuh dengan kesibukan, pemahaman tentang wudhuk menjadi sangat penting karena beberapa alasan strategis berikut:
+        </p>
+
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="emoji">🕌</div>
+                <h4>Ibadah Harian</h4>
+                <p>Wudhuk dilakukan minimal 5x sehari sebelum shalat fardhu — ibadah yang paling sering dikerjakan seorang muslim.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">📖</div>
+                <h4>Adab Membaca Al-Qur'an</h4>
+                <p>Menyentuh mushaf memerlukan wudhuk — menjaga kemuliaan kalamullah setiap saat.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🏥</div>
+                <h4>Kesehatan Fisik</h4>
+                <p>Membasuh anggota tubuh 5x sehari menjaga kebersihan dan mencegah berbagai penyakit.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🌿</div>
+                <h4>Kebersihan Lingkungan</h4>
+                <p>Islam mengajarkan kebersihan sebagai bagian dari iman — wudhuk adalah praktik nyatanya.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🕌</div>
+                <h4>Penguatan Iman</h4>
+                <p>Mempelajari wudhuk adalah bentuk tadabbur syariat yang meningkatkan keimanan.</p>
+            </div>
+            <div class="icon-item">
+                <div class="emoji">🎓</div>
+                <h4>Fondasi Fiqih Lanjut</h4>
+                <p>Pemahaman wudhuk adalah prasyarat untuk menguasai bab shalat, tilawah, dan ibadah lainnya.</p>
+            </div>
+        </div>
+
+        <button class="video-btn" onclick="openModal()">▶ 🎬 Tampilkan Video: Urgensi Wudhuk</button>
+    </div>
+
+    <!-- Keywords -->
+    <div class="keywords-section">
+        <h2>◆ Kata Kunci Bab Ini</h2>
+        <div class="keyword-cloud">
+            <span class="keyword">Wudhuk</span>
+            <span class="keyword">Hadas Kecil</span>
+            <span class="keyword">Rukun</span>
+            <span class="keyword">Sunnah</span>
+            <span class="keyword">Pembatal</span>
+            <span class="keyword">Niat</span>
+            <span class="keyword">Tertib</span>
+            <span class="keyword">Membasuh</span>
+            <span class="keyword">Mengusap</span>
+            <span class="keyword">Air Mutlak</span>
+            <span class="keyword">Tayamum</span>
+            <span class="keyword">Ghurr Muhajjalun</span>
+        </div>
+        <div class="arabic-quote">إِنَّ ٱللَّهَ يُحِبُّ ٱلتَّوَّٰبِينَ وَيُحِبُّ ٱلْمُتَطَهِّرِينَ</div>
+        <p style="opacity: 0.9; font-style: italic;">"Sesungguhnya Allah mencintai orang-orang yang bertaubat dan menyukai orang-orang yang menyucikan diri."</p>
+        <p style="opacity: 0.8; font-size: 0.85rem;">— QS. Al-Baqarah [2]: 222</p>
+    </div>
+
+    <!-- Quiz CTA -->
+    <div class="quiz-cta">
+        <h2>📝 Uji Pemahaman Anda</h2>
+        <p>Setelah mempelajari Bab 2, ukur pemahaman Anda melalui uji formatif yang telah disiapkan. Jawab 10 pertanyaan pilihan ganda dan esai singkat.</p>
+        <a href="uji-formatif-2.html">📝 Ikuti Uji Formatif Bab 2 →</a>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="1.html">← Sebelumnya<br><small>Bab 1: Pengantar Thaharah</small></a>
+        <a href="3.html">Selanjutnya →<br><small>Bab 3: Shalat, Zikir, dan Doa</small></a>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="videoModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <h3 style="color: #004d40; margin-bottom: 1rem;">🎬 Video Pembelajaran</h3>
+        <p style="margin-bottom: 1rem;">Video pembelajaran akan segera tersedia.</p>
+        <p style="font-size: 0.9rem; color: #666;">Hubungi penulis untuk akses konten video lengkap.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="brand">D · RAHMADANI</div>
+    <p>© 2026 · Dra. Rahmadani</p>
+    <p>MTsN 6 Agam · Hak Cipta Dilindungi Undang-Undang</p>
+    <p><a href="mailto:rahmadanimay@gmail.com">rahmadanimay@gmail.com</a></p>
+</footer>
+
+<script>
+    function openModal() {
+        document.getElementById('videoModal').classList.add('active');
+    }
+    function closeModal() {
+        document.getElementById('videoModal').classList.remove('active');
+    }
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+</script>
+
+</body>
+</html>

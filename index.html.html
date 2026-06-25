@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIKIH KELAS VII — Dra. Rahmadani</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: #f4f7f6;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header & Hero Section */
+        header {
+            background: linear-gradient(135deg, #004d40, #00695c);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        nav a:hover { text-decoration: underline; }
+        .edition { font-size: 0.9rem; opacity: 0.8; margin-bottom: 0.5rem; letter-spacing: 1px; }
+        h1 { margin: 0.5rem 0; font-size: 2.8rem; font-weight: 800; }
+        .author-hero { font-size: 1.2rem; font-style: italic; opacity: 0.9; margin-bottom: 1rem; }
+        .hero-desc { max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; opacity: 0.95; }
+
+        /* Stats & Badges */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .stat-item { text-align: center; }
+        .stat-item h3 { margin: 0; font-size: 1.2rem; color: #a5d6a7; }
+        .stat-item p { margin: 0; font-size: 0.85rem; opacity: 0.8; }
+        .badges { margin-top: 1rem; }
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin: 0.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Main Container */
+        .container { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* Chapter List */
+        .chapter-list h2 { text-align: center; color: #004d40; font-size: 2rem; margin-bottom: 0.5rem; }
+        .chapter-list > p { text-align: center; color: #666; margin-bottom: 2.5rem; }
+        
+        .chapter-item {
+            background: white;
+            margin-bottom: 1.2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .chapter-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        .chapter-content { display: flex; align-items: center; flex: 1; }
+        .chapter-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #00796b;
+            margin-right: 1.5rem;
+            min-width: 50px;
+        }
+        .chapter-title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.3rem 0; color: #222; }
+        .chapter-desc { color: #666; margin: 0 0 0.5rem 0; font-size: 0.95rem; }
+        .chapter-category {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.7rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .chapter-link a {
+            font-size: 1.8rem;
+            color: #00796b;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        .chapter-link a:hover { color: #004d40; }
+
+        /* Author Section */
+        .author-section {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .author-section h2 { color: #004d40; margin-bottom: 0; }
+        .author-section .role { color: #666; margin-top: 0; font-style: italic; }
+        .author-avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #004d40, #00796b);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1.5rem auto;
+        }
+        .author-details { margin-bottom: 2rem; }
+        .author-details h3 { margin: 0.5rem 0 0; color: #004d40; }
+        .author-details p { margin: 0.2rem 0; color: #555; }
+        .author-details a { color: #00796b; font-weight: 600; }
+        
+        blockquote {
+            font-style: italic;
+            color: #444;
+            border-left: 4px solid #00796b;
+            padding: 0.5rem 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: left;
+            background: #f9fbfb;
+            border-radius: 0 8px 8px 0;
+        }
+        blockquote cite { display: block; margin-top: 0.5rem; font-weight: bold; color: #004d40; font-style: normal; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #004d40;
+            color: white;
+            margin-top: 3rem;
+        }
+        footer p { margin: 0.3rem 0; opacity: 0.9; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header id="hero">
+    <nav>
+        <a href="#hero">Beranda</a>
+        <a href="#chapters">Daftar Bab</a>
+        <a href="#about">Penulis</a>
+    </nav>
+    <div class="edition">✦ EDISI PREMIUM · 2026 ✦</div>
+    <h1>FIKIH KELAS VII</h1>
+    <div class="author-hero">oleh Dra. Rahmadani</div>
+    <p class="hero-desc">
+        Sebuah perjalanan ilmiah dan spiritual mempelajari hukum Islam — mengupas tata cara bersuci, shalat, hingga zikir dan doa sebagai fondasi ibadah seorang muslim.
+    </p>
+    
+    <div class="stats-container">
+        <div class="stat-item">
+            <h3>5 Bab Lengkap</h3>
+            <p>Jumlah Bab</p>
+        </div>
+        <div class="stat-item">
+            <h3>MTsN 6 Agam</h3>
+            <p>Homebase</p>
+        </div>
+        <div class="stat-item">
+            <h3>Digital · Interaktif</h3>
+            <p>Format</p>
+        </div>
+    </div>
+
+    <div class="badges">
+        <span class="badge">Thaharah</span>
+        <span class="badge">Wudhuk</span>
+        <span class="badge">Shalat</span>
+        <span class="badge">Zikir & Doa</span>
+    </div>
+</header>
+
+<div class="container">
+    <section id="chapters" class="chapter-list">
+        <h2>Lima Bab Perjalanan</h2>
+        <p>Setiap bab dirancang untuk membuka wawasan fiqih — perenungan terhadap ketentuan Allah agar ibadah yang kita lakukan menjadi sah dan diterima.</p>
+
+        <!-- Bab 1 -->
+        <div class="chapter-item">
+            <div class="chapter-content">
+                <div class="chapter-number">01</div>
+                <div>
+                    <h3 class="chapter-title">Pengantar Thaharah: Bersuci sebagai Kunci Ibadah</h3>
+                    <p class="chapter-desc">Memahami konsep thaharah, pembagian air, serta tata cara bersuci dari hadas kecil dan hadas besar sebagai syarat mutlak sahnya ibadah.</p>
+                    <span class="chapter-category">Dasar Fiqih</span>
+                </div>
+            </div>
+            <div class="chapter-link">
+                <a href="1.html" target="_blank">↗</a>
+            </div>
+        </div>
+
+        <!-- Bab 2 -->
+        <div class="chapter-item">
+            <div class="chapter-content">
+                <div class="chapter-number">02</div>
+                <div>
+                    <h3 class="chapter-title">Wudhuk: Tata Cara dan Hikmah di Baliknya</h3>
+                    <p class="chapter-desc">Panduan lengkap rukun, sunnah, dan hal-hal yang membatalkan wudhuk, serta refleksi spiritual membersihkan lahir dan batin sebelum menghadap Allah.</p>
+                    <span class="chapter-category">Ibadah</span>
+                </div>
+            </div>
+            <div class="chapter-link">
+                <a href="2.html" target="_blank">↗</a>
+            </div>
+        </div>
+
+        <!-- Bab 3 -->
+        <div class="chapter-item">
+            <div class="chapter-content">
+                <div class="chapter-number">03</div>
+                <div>
+                    <h3 class="chapter-title">Shalat, Zikir, dan Doa: Tiang Agama dan Koneksi dengan Sang Pencipta</h3>
+                    <p class="chapter-desc">Mempelajari syarat sah dan rukun shalat fardhu, serta rangkaian zikir dan doa setelah shalat untuk meraih ketenangan jiwa dan kedekatan kepada Allah.</p>
+                    <span class="chapter-category">Ibadah Utama</span>
+                </div>
+            </div>
+            <div class="chapter-link">
+                <a href="3.html" target="_blank">↗</a>
+            </div>
+        </div>
+
+        <!-- Bab 4 -->
+        <div class="chapter-item">
+            <div class="chapter-content">
+                <div class="chapter-number">04</div>
+                <div>
+                    <h3 class="chapter-title">Ujian Tengah Semester (UTS)</h3>
+                    <p class="chapter-desc">Evaluasi komprehensif materi Thaharah dan Wudhuk — mengukur pemahaman fiqih, kejujuran akademik, dan ketekunan menuntut ilmu.</p>
+                    <span class="chapter-category">Evaluasi</span>
+                </div>
+            </div>
+            <div class="chapter-link">
+                <a href="4.html" target="_blank">↗</a>
+            </div>
+        </div>
+
+        <!-- Bab 5 -->
+        <div class="chapter-item">
+            <div class="chapter-content">
+                <div class="chapter-number">05</div>
+                <div>
+                    <h3 class="chapter-title">Ujian Akhir Semester (UAS)</h3>
+                    <p class="chapter-desc">Evaluasi menyeluruh seluruh materi — puncak perjalanan intelektual yang memadukan ilmu fiqih, iman, dan pengamalan ibadah sehari-hari.</p>
+                    <span class="chapter-category">Evaluasi Akhir</span>
+                </div>
+            </div>
+            <div class="chapter-link">
+                <a href="5.html" target="_blank">↗</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="author-section">
+        <h2>Tentang Penulis</h2>
+        <p class="role">Sang Perangkai Ilmu</p>
+        
+        <div class="author-avatar">DR</div>
+        <div class="author-details">
+            <h3>Dra. Rahmadani</h3>
+            <p>Pendidik & Penulis</p>
+            <p>MTsN 6 Agam</p>
+            <p><a href="mailto:rahmadanimay@gmail.com">rahmadanimay@gmail.com</a></p>
+        </div>
+        
+        <h3 style="color: #004d40; margin-top: 2rem;">Ilmu yang Menghidupkan Hati</h3>
+        <p style="max-width: 700px; margin: 0 auto; text-align: left; color: #555;">
+            Buku ini lahir dari kerinduan untuk menyajikan fiqih bukan sekadar sebagai kumpulan hukum, melainkan sebagai jalan menuju kesucian lahir dan batin. Setiap bab dirancang untuk mengajak peserta didik memahami ketentuan Allah sekaligus merenungi hikmah di balik setiap ibadah.
+        </p>
+        
+        <blockquote>
+            "Sesungguhnya shalat itu mencegah dari (perbuatan-perbuatan) keji dan mungkar."
+            <cite>— QS. Al-'Ankabut : 45</cite>
+        </blockquote>
+        
+        <p style="max-width: 700px; margin: 0 auto; text-align: left; color: #555;">
+            Melalui pendekatan yang memadukan dalil naqli dan aqli, buku ini diharapkan menjadi wasilah bagi generasi muda untuk mencintai fiqih sebagai pedoman hidup dan bentuk ketaatan kepada Allah SWT.
+        </p>
+    </section>
+</div>
+
+<footer>
+    <p>© 2026 Dra. Rahmadani — MTsN 6 Agam</p>
+    <p>Crafted with reverence for knowledge and faith.</p>
+</footer>
+
+</body>
+</html>

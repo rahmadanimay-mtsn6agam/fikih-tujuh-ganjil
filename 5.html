@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Tengah Semester | FIKIH KELAS VII</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #f5f7f6;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* Top Navigation */
+        .top-nav {
+            background: #004d40;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .top-nav a { color: #a5d6a7; font-weight: 600; }
+        .top-nav a:hover { color: white; }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #bf360c, #d84315, #e64a19);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner::before {
+            content: "📝";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18rem;
+            opacity: 0.05;
+        }
+        .breadcrumb {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .chapter-badge {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .hero-banner h1 {
+            font-size: 2.5rem;
+            margin: 0.5rem auto;
+            font-weight: 800;
+            max-width: 800px;
+        }
+        .hero-banner .subtitle {
+            max-width: 700px;
+            margin: 1rem auto;
+            font-size: 1.05rem;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        .author-line {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Container */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /* Exam Info Card */
+        .exam-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            border-left: 5px solid #d84315;
+        }
+        .exam-info h2 {
+            color: #bf360c;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .exam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .exam-grid-item {
+            background: #fbe9e7;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .exam-grid-item .label {
+            font-size: 0.8rem;
+            color: #bf360c;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .exam-grid-item .value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #bf360c;
+        }
+
+        .instruction {
+            background: #fff3e0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #f57c00;
+        }
+        .instruction h4 {
+            color: #e65100;
+            margin-bottom: 0.8rem;
+        }
+        .instruction ul {
+            padding-left: 1.5rem;
+            color: #555;
+        }
+        .instruction li { margin: 0.4rem 0; }
+
+        /* Section Header */
+        .section-header {
+            background: linear-gradient(135deg, #004d40, #00796b);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .section-header h2 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        .section-header .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* Question Card */
+        .question {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #00796b;
+        }
+        .question.complex { border-left-color: #6a1b9a; }
+        .question.tf { border-left-color: #1565c0; }
+        .question.match { border-left-color: #ef6c00; }
+
+        .q-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .q-number {
+            display: inline-block;
+            background: #004d40;
+            color: white;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .question.complex .q-number { background: #6a1b9a; }
+        .question.tf .q-number { background: #1565c0; }
+        .question.match .q-number { background: #ef6c00; }
+
+        .q-type {
+            display: inline-block;
+            background: #e0f2f1;
+            color: #004d40;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .question.complex .q-type { background: #f3e5f5; color: #6a1b9a; }
+        .question.tf .q-type { background: #e3f2fd; color: #1565c0; }
+        .question.match .q-type { background: #fff3e0; color: #ef6c00; }
+
+        .stimulus {
+            background: #f1f8e9;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #7cb342;
+            font-size: 0.95rem;
+            color: #33691e;
+            font-style: italic;
+        }
+        .stimulus strong {
+            font-style: normal;
+            color: #33691e;
+        }
+
+        .q-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #222;
+            font-size: 1.02rem;
+        }
+
+        .options label {
+            display: block;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            background: #f9fbf9;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .options label:hover {
+            background: #e0f2f1;
+            border-color: #00796b;
+        }
+        .options input { margin-right: 0.8rem; }
+        .options input:checked + span { font-weight: 600; color: #004d40; }
+
+        /* True/False */
+        .tf-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .tf-options label {
+            padding: 1rem;
+            background: #f9fbf9;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+        .tf-options label:hover {
+            background: #e3f2fd;
+            border-color: #1565c0;
+        }
+        .tf-options input { margin-right: 0.5rem; }
+
+        /* Matching */
+        .match-container {
+            display: grid;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .match-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+            align-items: center;
+            padding: 0.8rem;
+            background: #fff8e1;
+            border-radius: 8px;
+            border: 1px solid #ffe082;
+        }
+        .match-term {
+            font-weight: 600;
+            color: #e65100;
+        }
+        .match-row select {
+            padding: 0.6rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: white;
+            cursor: pointer;
+        }
+        .match-row select:focus {
+            outline: none;
+            border-color: #ef6c00;
+        }
+
+        /* Submit Button */
+        .submit-section {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #bf360c, #d84315);
+            border-radius: 12px;
+        }
+        .submit-btn {
+            background: white;
+            color: #bf360c;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .submit-btn:hover { transform: scale(1.05); }
+
+        /* Result */
+        .result {
+            display: none;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid #00796b;
+        }
+        .result.show { display: block; }
+        .result h2 {
+            color: #004d40;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .result-total {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #004d40, #00796b);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .result-total .score {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0.5rem 0;
+        }
+        .result-total .percent {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .result-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .breakdown-item {
+            background: #f5f7f6;
+            padding: 1.2rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #00796b;
+        }
+        .breakdown-item .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+        .breakdown-item .score {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #004d40;
+        }
+        .result-message {
+            text-align: center;
+            padding: 1.5rem;
+            background: #e8f5e9;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #2e7d32;
+            font-size: 1.05rem;
+        }
+        .result-nav {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        .result-nav a {
+            display: inline-block;
+            background: #004d40;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0.3rem;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .bottom-nav a {
+            color: #004d40;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border: 2px solid #004d40;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .bottom-nav a:hover {
+            background: #004d40;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #004d40;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        footer .brand {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        footer p { font-size: 0.85rem; opacity: 0.85; margin: 0.3rem 0; }
+        footer a { color: #a5d6a7; }
+
+        @media (max-width: 600px) {
+            .hero-banner h1 { font-size: 1.8rem; }
+            .question { padding: 1.5rem; }
+            .match-row { grid-template-columns: 1fr; }
+            .tf-options { grid-template-columns: 1fr; }
+            .bottom-nav { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html">← Daftar Isi</a>
+</nav>
+
+<section class="hero-banner">
+    <div class="breadcrumb">FIKIH · KELAS VII · MTsN 6 AGAM</div>
+    <div class="chapter-badge">UJIAN TENGAH SEMESTER · GANJIL</div>
+    <h1>📝 Ujian Tengah Semester (UTS)</h1>
+    <p class="subtitle">
+        Evaluasi komprehensif materi Bab 1 (Thaharah) dan Bab 2 (Wudhuk) — menguji pemahaman konseptual, analisis kasus, dan kemampuan istinbath hukum.
+    </p>
+    <div class="author-line">Dra. Rahmadani · MTsN 6 Agam</div>
+</section>
+
+<div class="container">
+
+    <!-- Exam Info -->
+    <div class="exam-info">
+        <h2>📋 Informasi Ujian</h2>
+        <p>Ujian ini mengukur pemahaman Anda terhadap materi Thaharah dan Wudhuk melalui berbagai tipe soal yang menuntut kemampuan berpikir tingkat tinggi (HOTS).</p>
+        <div class="exam-grid">
+            <div class="exam-grid-item">
+                <div class="label">Total Soal</div>
+                <div class="value">40</div>
+            </div>
+            <div class="exam-grid-item">
+                <div class="label">PG HOTS</div>
+                <div class="value">20</div>
+            </div>
+            <div class="exam-grid-item">
+                <div class="label">PG Kompleks</div>
+                <div class="value">10</div>
+            </div>
+            <div class="exam-grid-item">
+                <div class="label">Benar/Salah</div>
+                <div class="value">5</div>
+            </div>
+            <div class="exam-grid-item">
+                <div class="label">Menjodohkan</div>
+                <div class="value">5</div>
+            </div>
+            <div class="exam-grid-item">
+                <div class="label">Skor Maks</div>
+                <div class="value">40</div>
+            </div>
+        </div>
+
+        <div class="instruction">
+            <h4>📌 Petunjuk Pengerjaan</h4>
+            <ul>
+                <li><strong>Bagian A (PG HOTS):</strong> Bacalah stimulus narasi dengan saksama, lalu pilih satu jawaban yang paling tepat.</li>
+                <li><strong>Bagian B (PG Kompleks):</strong> Pilih <em>semua</em> jawaban yang benar (bisa lebih dari satu).</li>
+                <li><strong>Bagian C (Benar/Salah):</strong> Tentukan apakah pernyataan benar atau salah.</li>
+                <li><strong>Bagian D (Menjodohkan):</strong> Cocokkan setiap istilah dengan penjelasan yang tepat melalui dropdown.</li>
+                <li>Kerjakan dengan jujur dan teliti. Waktu tidak dibatasi, namun disarankan 90 menit.</li>
+            </ul>
+        </div>
+    </div>
+
+    <form id="examForm">
+
+        <!-- ============================================ -->
+        <!-- BAGIAN A: PILIHAN GANDA HOTS (20 SOAL) -->
+        <!-- ============================================ -->
+        <div class="section-header">
+            <h2>📘 Bagian A — Pilihan Ganda HOTS</h2>
+            <span class="badge">20 Soal · Stimulus Narasi</span>
+        </div>
+
+        <!-- Soal 1 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">1</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Ahmad sedang dalam perjalanan safar sejauh 80 km untuk keperluan dakwah. Tiba waktu shalat Dzuhur, ia berhenti di sebuah rest area dan mencari air untuk berwudhuk, tetapi tidak menemukannya sama sekali. Ia kemudian menemukan debu yang suci di dinding mobilnya. Ia pun bertayamum dan melaksanakan shalat Dzuhur. Keesokan harinya, ia menemukan air di masjid tempat tujuannya, sementara waktu Dzuhur sudah lewat.
+            </div>
+            <p class="q-text">Berdasarkan kaidah fiqih tentang tayamum, analisis yang paling tepat mengenai status tayamum Ahmad dan kewajibannya adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a1" value="a"><span>a. Tayamumnya tidak sah karena debu di dinding mobil bukan debu asli tanah, sehingga ia wajib mengqadha shalat Dzuhur.</span></label>
+                <label><input type="radio" name="a1" value="b"><span>b. Tayamumnya sah dan shalatnya valid, tidak perlu diulang atau diqadha meskipun nanti menemukan air, karena tayamum adalah thaharah hakiki bagi orang yang tidak menemukan air.</span></label>
+                <label><input type="radio" name="a1" value="c"><span>c. Tayamumnya sah untuk shalat saat itu saja, tetapi ia wajib mengqadha shalat Dzuhur setelah menemukan air.</span></label>
+                <label><input type="radio" name="a1" value="d"><span>d. Tayamumnya batal otomatis ketika menemukan air, sehingga ia wajib berwudhuk dan mengulang shalat Dzuhur.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">2</span>
+                <span class="q-type">PG HOTS · C5 Mengevaluasi</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Fatimah mengalami haidh selama 7 hari. Pada hari ke-8, ia melihat tanda suci dan ingin membaca Al-Qur'an untuk persiapan lomba tilawah di madrasah. Ia membaca mushaf Al-Qur'an digital melalui aplikasi di smartphone-nya tanpa menyentuh mushaf fisik. Seorang teman menegurnya bahwa wanita haidh haram membaca Al-Qur'an secara mutlak.
+            </div>
+            <p class="q-text">Evaluasi paling tepat terhadap kasus Fatimah menurut mazhab Syafi'i adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a2" value="a"><span>a. Teguran teman Fatimah benar, karena wanita haidh haram membaca Al-Qur'an dalam kondisi apa pun, baik melalui mushaf maupun digital.</span></label>
+                <label><input type="radio" name="a2" value="b"><span>b. Fatimah berdosa karena membaca Al-Qur'an meskipun melalui HP, sebab lafazh Al-Qur'an tetaplah Al-Qur'an.</span></label>
+                <label><input type="radio" name="a2" value="c"><span>c. Tindakan Fatimah dibolehkan karena yang dilarang dalam mazhab Syafi'i adalah membaca Al-Qur'an dengan niat tilawah (bukan doa) dan menyentuh mushaf; membaca lewat HP tanpa menyentuh mushaf tidak termasuk keduanya.</span></label>
+                <label><input type="radio" name="a2" value="d"><span>d. Fatimah wajib bertayamum terlebih dahulu sebelum membaca Al-Qur'an, meskipun sedang haidh.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">3</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Zainab selesai melaksanakan shalat Maghrib di masjid. Setelah shalat, ia menyadari ada noda kecil berwarna kecokelatan di ujung bajunya yang kemungkinan adalah najis. Ia tidak tahu pasti kapan noda itu menempel — bisa sebelum wudhuk, saat wudhuk, atau setelah shalat. Ia yakin noda itu tidak ada saat ia berangkat ke masjid.
+            </div>
+            <p class="q-text">Analisis hukum yang paling tepat mengenai status shalat Zainab adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a3" value="a"><span>a. Shalatnya tidak sah karena adanya najis di pakaian, meskipun ia tidak tahu kapan najis itu menempel, sehingga ia wajib mengqadha shalat.</span></label>
+                <label><input type="radio" name="a3" value="b"><span>b. Shalatnya sah dan tidak perlu diulang, karena kaidah fiqih menyatakan "yang yakin tidak bisa dihilangkan oleh keraguan" — ia yakin suci saat shalat, dan najis yang baru diketahui setelahnya tidak membatalkan.</span></label>
+                <label><input type="radio" name="a3" value="c"><span>c. Shalatnya sah namun makruh, dan ia dianjurkan mengulang shalat sebagai bentuk kehati-hatian (ihtiyath).</span></label>
+                <label><input type="radio" name="a3" value="d"><span>d. Shalatnya batal karena ia wajib memeriksa pakaiannya sebelum shalat, dan kelalaian ini menyebabkan shalat tidak sah.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">4</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Di masjid kampung terdapat sebuah kolam kecil berukuran 1m × 1m × 0,5m yang digunakan untuk wudhuk. Suatu hari, seekor kucing kampung masuk ke kolam tersebut, berenang sebentar, lalu keluar. Air kolam tidak berubah warna, bau, maupun rasanya. Beberapa jamaah ragu apakah air tersebut masih bisa digunakan untuk wudhuk.
+            </div>
+            <p class="q-text">Berdasarkan ketentuan air dalam fiqih Syafi'i, analisis yang paling tepat adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a4" value="a"><span>a. Air kolam menjadi najis mughallazah karena kucing termasuk hewan yang najis, sehingga tidak boleh digunakan untuk wudhuk sama sekali.</span></label>
+                <label><input type="radio" name="a4" value="b"><span>b. Air kolam tetap suci dan menyucikan karena volumenya mencapai dua qullah (atau mendekati) dan tidak berubah salah satu dari tiga sifatnya, sehingga boleh digunakan untuk wudhuk.</span></label>
+                <label><input type="radio" name="a4" value="c"><span>c. Air kolam menjadi suci tetapi tidak menyucikan (musta'mal), sehingga hanya boleh digunakan untuk mencuci pakaian, bukan untuk wudhuk.</span></label>
+                <label><input type="radio" name="a4" value="d"><span>d. Air kolam menjadi najis mutawassithah dan harus disucikan dengan mengalirkan air baru selama 24 jam.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">5</span>
+                <span class="q-type">PG HOTS · C5 Mengevaluasi</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Ridha berwudhuk untuk shalat Isya pada pukul 19.00, kemudian memakai kaus kaki. Keesokan harinya, ia terbangun untuk shalat Subuh pada pukul 04.30 dan ingin mengusap kaus kakinya (mash 'ala khuffain) tanpa melepasnya. Ia ingat bahwa ia pertama kali memakai kaus kaki setelah wudhuk Isya dalam keadaan suci.
+            </div>
+            <p class="q-text">Evaluasi yang paling tepat mengenai masa mash Ridha adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a5" value="a"><span>a. Mash sudah tidak boleh karena sudah lebih dari 12 jam sejak wudhuk Isya, sehingga ia wajib melepas kaus kaki dan mencuci kaki.</span></label>
+                <label><input type="radio" name="a5" value="b"><span>b. Mash masih boleh karena bagi muqim (bukan musafir), batas waktu mash adalah 24 jam (sehari semalam) sejak pertama kali memakai kaus kaki dalam keadaan suci, yaitu pukul 19.00 kemarin — sehingga masih tersisa waktu hingga pukul 19.00 hari ini.</span></label>
+                <label><input type="radio" name="a5" value="c"><span>c. Mash hanya boleh untuk satu shalat saja, sehingga Ridha harus melepas kaus kaki setelah shalat Subuh.</span></label>
+                <label><input type="radio" name="a5" value="d"><span>d. Mash tidak sah karena kaus kaki harus terbuat dari kulit, bukan dari kain biasa.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">6</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Faisal sedang berwudhuk. Setelah membasuh wajah, ia ragu: "Apakah saya tadi sudah berniat atau belum?" Ia tidak yakin. Namun, ia memutuskan untuk melanjutkan wudhuknya hingga selesai tanpa mengulang dari awal, karena menganggap niat bisa dilakukan di tengah-tengah wudhuk.
+            </div>
+            <p class="q-text">Analisis yang paling tepat mengenai status wudhuk Faisal menurut kaidah ushul fiqih adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a6" value="a"><span>a. Wudhuknya sah karena niat boleh dilakukan kapan saja selama dalam rangkaian wudhuk, dan keraguan tidak membatalkan.</span></label>
+                <label><input type="radio" name="a6" value="b"><span>b. Wudhuknya tidak sah karena niat adalah rukun yang harus yakin adanya; keraguan tentang rukun berarti rukun tersebut tidak terpenuhi, sehingga ia wajib mengulang wudhuk dari awal.</span></label>
+                <label><input type="radio" name="a6" value="c"><span>c. Wudhuknya sah dengan makruh karena ia ragu, dan sebaiknya ia mengulang sebagai ihtiyath.</span></label>
+                <label><input type="radio" name="a6" value="d"><span>d. Wudhuknya batal karena keraguan dalam ibadah selalu membatalkan, berdasarkan kaidah "al-yaqin la yuzalu bisy-syakk".</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">7</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Ummu Khadijah mengalami darah istihadhah (penyakit) yang keluar terus-menerus selama 20 hari. Ia sebelumnya memiliki siklus haidh rutin 7 hari setiap bulan. Ia bingung bagaimana cara bersuci untuk shalat, karena darah terus keluar tanpa henti.
+            </div>
+            <p class="q-text">Solusi fiqih yang paling tepat bagi Ummu Khadijah menurut mazhab Syafi'i adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a7" value="a"><span>a. Ia tidak perlu shalat sama sekali selama darah istihadhah keluar, karena dianggap masih dalam kondisi haidh.</span></label>
+                <label><input type="radio" name="a7" value="b"><span>b. Ia harus mengembalikan darahnya pada kebiasaan (‘adah) siklus haidhnya — yaitu 7 hari — dan setelah itu ia dianggap suci, lalu mandi wajib dan berwudhuk untuk setiap shalat karena darah istihadhah membatalkan wudhuk.</span></label>
+                <label><input type="radio" name="a7" value="c"><span>c. Ia cukup berwudhuk sekali di pagi hari dan wudhuknya berlaku untuk seluruh shalat hari itu.</span></label>
+                <label><input type="radio" name="a7" value="d"><span>d. Ia wajib bertayamum untuk setiap shalat karena darah istihadhah dianggap sebagai hadas besar.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">8</span>
+                <span class="q-type">PG HOTS · C5 Mengevaluasi</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Air hujan menggenang di halaman rumah Pak Hasan dengan volume sekitar 100 liter (kurang dari dua qullah). Setelah hujan reda, Pak Hasan ingin menggunakan air genangan tersebut untuk berwudhuk. Tetangganya mengingatkan bahwa air genangan hujan tidak suci karena tergenang.
+            </div>
+            <p class="q-text">Evaluasi yang paling tepat berdasarkan ketentuan air mutlak adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a8" value="a"><span>a. Tetangga Pak Hasan benar, karena air yang tergenang otomatis menjadi musta'mal dan tidak menyucikan.</span></label>
+                <label><input type="radio" name="a8" value="b"><span>b. Air genangan hujan tetap suci dan menyucikan (air mutlak) selama tidak berubah salah satu dari tiga sifatnya (warna, bau, rasa) — meskipun volumenya kurang dari dua qullah, karena air hujan adalah air yang turun dari langit dan dihukumi suci berdasarkan nash.</span></label>
+                <label><input type="radio" name="a8" value="c"><span>c. Air genangan hanya boleh digunakan untuk mencuci pakaian, bukan untuk wudhuk, karena tidak mengalir.</span></label>
+                <label><input type="radio" name="a8" value="d"><span>d. Air genangan menjadi najis karena tergenang, sehingga harus dibuang seluruhnya.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 9 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">9</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Mahmud baru saja memakan daging unta panggang di rumah saudaranya. Setelah makan, ia ingin langsung melaksanakan shalat Maghrib di masjid terdekat. Ia bertanya kepada temannya: apakah ia perlu berwudhuk lagi setelah makan daging unta?
+            </div>
+            <p class="q-text">Analisis hukum yang paling tepat menurut mazhab Syafi'i adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a9" value="a"><span>a. Tidak perlu berwudhuk karena makan daging unta tidak termasuk pembatal wudhuk dalam mazhab Syafi'i.</span></label>
+                <label><input type="radio" name="a9" value="b"><span>b. Wajib berwudhuk lagi karena menurut mazhab Syafi'i, makan daging unta termasuk pembatal wudhuk berdasarkan hadis Rasulullah SAW: "Berwudhuklah kalian dari (daging) unta."</span></label>
+                <label><input type="radio" name="a9" value="c"><span>c. Cukup berkumur-kumur saja tanpa perlu berwudhuk penuh.</span></label>
+                <label><input type="radio" name="a9" value="d"><span>d. Hukumnya khilafiah, dan lebih baik berwudhuk sebagai bentuk kehati-hatian (ihtiyath).</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 10 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">10</span>
+                <span class="q-type">PG HOTS · C6 Mencipta</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Seorang muslim tinggal di Tromsø, Norwegia, yang pada musim panas mengalami siang selama 20 jam dan malam hanya 4 jam. Ia kesulitan menentukan waktu shalat dan bersuci karena matahari hampir tidak terbenam. Ia bertanya kepada seorang ulama tentang solusi fiqih.
+            </div>
+            <p class="q-text">Solusi fiqih yang paling tepat untuk kasus tersebut adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a10" value="a"><span>a. Ia tidak wajib shalat karena tidak ada waktu yang jelas, dan ini termasuk uzur syar'i yang menggugurkan kewajiban.</span></label>
+                <label><input type="radio" name="a10" value="b"><span>b. Ia wajib mengqadha semua shalat di akhir bulan karena waktu shalat tidak bisa ditentukan.</span></label>
+                <label><input type="radio" name="a10" value="c"><span>c. Ia boleh mengikuti waktu shalat negeri terdekat yang memiliki siklus siang-malam normal (seperti Mekah atau Stockholm), atau memperkirakan waktu shalat berdasarkan pembagian malam yang ada — ini adalah ijtihad ulama kontemporer untuk kasus ekstrem.</span></label>
+                <label><input type="radio" name="a10" value="d"><span>d. Ia wajib bertayamum sebagai pengganti wudhuk karena kondisi geografis yang ekstrem.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 11 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">11</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Di sebuah rumah, terdapat botol bekas khamr (minuman keras) yang sudah kosong dan dicuci sekali dengan air biasa. Kemudian botol tersebut diisi dengan air sumur untuk diminum. Seorang tamu meminum air tersebut dan khawatir apakah air itu suci.
+            </div>
+            <p class="q-text">Analisis hukum yang paling tepat mengenai status air dalam botol tersebut adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a11" value="a"><span>a. Air dalam botol suci dan halal diminum karena botol sudah dicuci, meskipun hanya sekali.</span></label>
+                <label><input type="radio" name="a11" value="b"><span>b. Air dalam botol haram diminum karena botol bekas khamr wajib dicuci tujuh kali, salah satunya dengan tanah, berdasarkan hadis Nabi SAW — jika tidak, maka air di dalamnya terkena najis mughallazah.</span></label>
+                <label><input type="radio" name="a11" value="c"><span>c. Air suci tetapi makruh diminum karena botolnya bekas minuman keras.</span></label>
+                <label><input type="radio" name="a11" value="d"><span>d. Air menjadi najis mutawassithah karena khamr termasuk najis sedang.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 12 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">12</span>
+                <span class="q-type">PG HOTS · C5 Mengevaluasi</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Pak Karim mengalami luka bakar di 70% tubuhnya dan sedang dirawat di ICU. Dokter melarangnya terkena air karena akan memperparah luka dan menyebabkan infeksi. Ia sudah 3 hari tidak bisa bersuci dengan air, sementara ia tetap wajib melaksanakan shalat.
+            </div>
+            <p class="q-text">Evaluasi yang paling tepat mengenai thaharah Pak Karim adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a12" value="a"><span>a. Ia gugur kewajibannya shalat selama di ICU karena kondisi medis yang darurat.</span></label>
+                <label><input type="radio" name="a12" value="b"><span>b. Ia wajib bertayamum dengan debu suci sebagai pengganti wudhuk dan mandi; jika tidak bisa bergerak, ia boleh ditayamumkan oleh orang lain, dan tayamum ini berlaku untuk setiap shalat.</span></label>
+                <label><input type="radio" name="a12" value="c"><span>c. Ia cukup berwudhuk dengan membasuh bagian tubuh yang sehat saja, dan bagian yang luka diabaikan sama sekali.</span></label>
+                <label><input type="radio" name="a12" value="d"><span>d. Ia wajib menunggu sampai sembuh baru melaksanakan shalat, karena thaharah adalah syarat sah yang tidak bisa digugurkan.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 13 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">13</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Hasan sedang berwudhuk di masjid. Tiba-tiba, tanpa disengaja, tangannya menyentuh tangan wanita ajnabiyyah (bukan mahram) yang juga sedang berwudhuk di tempat yang sama — keduanya tanpa penghalang (tidak memakai sarung tangan). Hasan ragu apakah wudhuknya batal.
+            </div>
+            <p class="q-text">Analisis hukum yang paling tepat menurut mazhab Syafi'i adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a13" value="a"><span>a. Wudhuk Hasan tidak batal karena sentuhan tidak disengaja dan tidak disertai syahwat.</span></label>
+                <label><input type="radio" name="a13" value="b"><span>b. Wudhuk Hasan batal secara mutlak karena dalam mazhab Syafi'i, bersentuhan kulit antara laki-laki dan perempuan ajnabi tanpa penghalang membatalkan wudhuk, baik disengaja maupun tidak, baik dengan syahwat maupun tidak.</span></label>
+                <label><input type="radio" name="a13" value="c"><span>c. Wudhuk Hasan batal hanya jika disertai syahwat; jika tidak, maka tidak batal.</span></label>
+                <label><input type="radio" name="a13" value="d"><span>d. Wudhuk Hasan makruh tetapi tidak batal, karena sentuhan tidak disengaja.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 14 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">14</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Di sebuah masjid modern, keran wudhuk menggunakan sistem otomatis yang airnya mengalir terus. Ahmad berwudhuk dengan keran ini, dan air bekas wudhuknya (musta'mal) langsung mengalir ke saluran pembuangan yang juga menampung air dari keran lain. Seorang jamaah bertanya apakah air di saluran pembuangan tersebut menjadi musta'mal sehingga tidak bisa digunakan lagi.
+            </div>
+            <p class="q-text">Analisis yang paling tepat adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a14" value="a"><span>a. Air di saluran pembuangan otomatis menjadi najis karena tercampur air musta'mal.</span></label>
+                <label><input type="radio" name="a14" value="b"><span>b. Air musta'mal adalah suci tetapi tidak menyucikan; ia tidak menajiskan air lain, sehingga air di saluran tetap suci (namun tidak boleh digunakan untuk wudhuk karena sudah berubah statusnya menjadi musta'mal atau bercampur kotoran).</span></label>
+                <label><input type="radio" name="a14" value="c"><span>c. Air musta'mal hukumnya sama dengan air mutlak, sehingga tetap boleh digunakan untuk wudhuk.</span></label>
+                <label><input type="radio" name="a14" value="d"><span>d. Air musta'mal menjadi najis mukhaffafah sehingga cukup diperciki air saja untuk menyucikannya.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 15 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">15</span>
+                <span class="q-type">PG HOTS · C5 Mengevaluasi</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Salim sudah berwudhuk di rumah dengan yakin. Saat di perjalanan ke masjid, ia ragu: "Apakah saya tadi sudah buang air kecil atau belum?" Keraguan ini muncul tanpa ada tanda-tanda fisik yang jelas (seperti basah di pakaian). Ia bingung apakah harus mengulang wudhuk atau melanjutkan dengan wudhuk yang ada.
+            </div>
+            <p class="q-text">Penerapan kaidah ushul fiqih yang paling tepat untuk kasus Salim adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a15" value="a"><span>a. Salim wajib mengulang wudhuk karena keraguan dalam thaharah selalu membatalkan.</span></label>
+                <label><input type="radio" name="a15" value="b"><span>b. Salim tidak perlu mengulang wudhuk dan boleh mengabaikan keraguan tersebut, berdasarkan kaidah "al-yaqin la yuzalu bisy-syakk" (keyakinan tidak bisa dihilangkan oleh keraguan) — ia yakin berwudhuk, dan keraguan tentang hadats tidak bisa membatalkan keyakinan tersebut.</span></label>
+                <label><input type="radio" name="a15" value="c"><span>c. Salim harus menunggu sampai ada kepastian, jika tidak yakin maka tidak boleh shalat.</span></label>
+                <label><input type="radio" name="a15" value="d"><span>d. Salim wajib bertayamum sebagai bentuk kehati-hatian.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 16 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">16</span>
+                <span class="q-type">PG HOTS · C4 Menganalisis</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Air zamzam dibawa oleh jamaah haji dari Mekah ke Indonesia dalam botol tertutup. Di Indonesia, air tersebut akan digunakan untuk wudhuk oleh keluarga di rumah. Seorang kerabat mempertanyakan apakah air zamzam yang sudah dipindahkan ke luar Tanah Haram masih memiliki status air mutlak.
+            </div>
+            <p class="q-text">Analisis yang paling tepat adalah...</p>
+            <div class="options">
+                <label><input type="radio" name="a16" value="a"><span>a. Air zamzam tidak boleh digunakan untuk wudhuk karena hanya boleh diminum, bukan untuk bersuci.</span></label>
+                <label><input type="radio" name="a16" value="b"><span>b. Air zamzam tetap suci dan menyucikan (air mutlak) meskipun dipindahkan ke luar Tanah Haram, karena status air mutlak ditentukan oleh sifat fisiknya (tidak berubah warna, bau, rasa), bukan oleh lokasinya.</span></label>
+                <label><input type="radio" name="a16" value="c"><span>c. Air zamzam menjadi musta'mal setelah dipindahkan dari sumurnya, sehingga tidak menyucikan.</span></label>
+                <label><input type="radio" name="a16" value="d"><span>d. Air zamzam hanya boleh digunakan untuk wudhuk di dalam Masjidil Haram.</span></label>
+            </div>
+        </div>
+
+        <!-- Soal 17 -->
+        <div class="question">
+            <div class="q-header">
+                <span class="q-number">17</span>
+                <span class="q-type">PG HOTS · C5 Mengevaluasi</span>
+            </div>
+            <div class="stimulus">
+                <strong>Stimulus:</strong> Irfan berwudhuk tetapi tidak tertib — ia membasuh kaki terlebih dahulu, kemudian membasuh wajah, lalu kedua tangan, baru mengus
